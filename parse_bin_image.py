@@ -6,7 +6,7 @@ import os
 
 def main():
     # usage: ./parse_bin_image /path/to/image [OPTIONS]
-    filepath = sys.args[1]
+    filepath = sys.argv[1]
     if(not os.path.exists(filepath)):
         print(f"{filepath} not found.\n usage: ./parse_bin_image /path/to/image [OPTIONS]")
 
