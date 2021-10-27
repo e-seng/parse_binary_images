@@ -89,5 +89,43 @@ $ ./parse_bin_image.py 0.png --pixel_size=2
 this binary can now be copied into a [binary to ascii converter](https://asciitohex.com) (this one is my personal
 favourite) and i should get the flag, or at least a part of it, hidden in this page.
 ### uh oh, it's not ascii binary
+copying the binary that was generated into the converter led to... this.
+```
+eZWî¥m¦hI¨x³Âuî"zXcndÚ±
+Wæ¥>S¡{2ÐîÅm¦%©4æûÊhCFe ¥O]Û¦¤!V¢[u«¤=Ýk²lØô*ú¤iÁ\Í:õ¦å¦mË5W|¶ZÕo¦°÷b$t)Mê÷jòwIå%5*f¶éi½±
+©Zaù!bçeÚª²ÚÒÛSjñ­¹ê¦¶?*©OfªO©Ö±]*ªäÝ
+¹%íæÅåyYò&èVAMújm
+¥Þ^Ý$YrV)-\hfR*FÀÕ©°UZ°ªõbZYv¤¦
+...
+```
+(generated [here](https://onlinebinarytools.com/convert-binary-to-ascii) as asciitohex did not want to handle it)
+
+i was hoping for something in base64, or *any* ascii value really, but this was just garbage.
+
+maybe the bits were inverted somehow? i tried treating white bits as 0, black as 1, but that quickly failed as well.
+
+at this point, i was pretty stuck. if the bits weren't binary, what else could they represent?
+
+in general, when i'm stumped on a problem, i like to take a step back and look at the provided items one at a time to see
+if there was anything i could've missed. i placed both image windows in the same spot on my screen and started to `alt+tab` to
+switch between both images.
+
+![alt-tabbing between images show some pixels seem to shift, others did not](https://imgflip.com/gif/5s2miq "a little fuzzy, sorry")
+
+welp, that's pretty interesting! some pixels seem to move between both images while others did not!
+
+in this state, i could not read the image, but in cases where i'm only interesting in things that are changing, XOR is by best friend.
+
+```
+note:
+
+XOR:
+a | b | a ^ b
+0 | 0 |   0
+0 | 1 |   1
+1 | 0 |   1
+1 | 1 |   0
+```
+
 ### making a new binary image
 ### getting the solution
