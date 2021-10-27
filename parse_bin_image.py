@@ -17,7 +17,8 @@ def main():
             pixel_size = arg.split("=")[-1]
             continue
 
-    print(parse_binary_image(filepath, pixel_size=pixel_size))
+    ps = int(pixel_size)
+    print(parse_binary_image(filepath, pixel_size=ps))
 
 def parse_binary_image(filepath, pixel_size=1):
     binary_values = []
