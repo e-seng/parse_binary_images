@@ -35,7 +35,11 @@ def main():
 
     # AGAIN WHY PYTHON MUST YOU BETRAY ME WITH UNCONVENTIONAL FOR SYNTAXES
     for i in range(len(xor_out)):
-        sys.stdout.buffer.write(bytes(f"{xor_out[i]}", "utf-8"))
+        insert_char = f"{xor_out[i]}"
+
+        if(i % row_length == 0):
+            insert_char += "\n"
+        sys.stdout.buffer.write(bytes(insert_char, "utf-8"))
 
 if __name__ == "__main__":
     main()
