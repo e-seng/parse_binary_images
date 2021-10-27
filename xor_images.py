@@ -16,8 +16,8 @@ def main():
             continue
 
     ps = int(pixel_size)
-    parse_bin_image.parse_binary_image(fp1, pixel_size=ps);
-    parse_bin_image.parse_binary_image(fp2, pixel_size=ps);
+    image1 = parse_bin_image.parse_binary_image(fp1, pixel_size=ps);
+    image2 = parse_bin_image.parse_binary_image(fp2, pixel_size=ps);
 
 if __name__ == "__main__":
     main()
