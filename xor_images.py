@@ -19,5 +19,14 @@ def main():
     image1 = parse_bin_image.parse_binary_image(fp1, pixel_size=ps);
     image2 = parse_bin_image.parse_binary_image(fp2, pixel_size=ps);
 
+    min_length = min(len(image1), len(image2))
+
+    xor_out = []
+
+    for i in range(min_length):
+        xor_out.append(image1[i] ^ image2[i])
+
+    print(xor_out)
+
 if __name__ == "__main__":
     main()
