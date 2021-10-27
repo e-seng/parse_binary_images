@@ -22,9 +22,9 @@ def parse_binary_image(filepath, pixel_size=1):
     max_x = width // pixel_size
     max_y = heigth // pixel_size
 
-    for(j in range(max_y)):
+    for j in range(max_y):
         y = j * pixel_size
-        for(i in range(max_x):
+        for i in range(max_x):
                 x = i * pixel_size # jump by the pixel_size to the next pixel
                 print(pixel_array[x, y])
 
