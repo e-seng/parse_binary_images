@@ -28,5 +28,9 @@ def main():
 
     print(xor_out)
 
+    # AGAIN WHY PYTHON MUST YOU BETRAY ME WITH UNCONVENTIONAL FOR SYNTAXES
+    for i in range(len(xor_out)):
+        sys.stdout.buffer.write(bytes(f"{xor_out[i]}", "utf-8"))
+
 if __name__ == "__main__":
     main()
