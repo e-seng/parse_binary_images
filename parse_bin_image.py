@@ -10,6 +10,8 @@ def main():
     if(not os.path.exists(filepath)):
         print(f"{filepath} not found.\n usage: ./parse_bin_image /path/to/image [OPTIONS]")
 
+    parse_binary_image(filepath)
+
 def parse_binary_image(filepath, pixel_size=1):
     image = Image.open(filepath)
     pixel_array = image.load()
