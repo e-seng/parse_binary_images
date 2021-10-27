@@ -27,8 +27,6 @@ def main():
     for i in range(min_length):
         xor_out.append(image1[i] ^ image2[i])
 
-    print(xor_out)
-
     # get size of the image to enter newlines in appropreate locations
     image = Image.open(fp1);
     width, height = image.size
