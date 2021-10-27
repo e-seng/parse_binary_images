@@ -10,7 +10,14 @@ def main():
     if(not os.path.exists(filepath)):
         print(f"{filepath} not found.\n usage: ./parse_bin_image /path/to/image [OPTIONS]")
 
-    parse_binary_image(filepath)
+    pixel_size = "1"
+
+    for arg in argv:
+        if("--pixel_size" in arg):
+            pixel_size = arg.split("=")[-1]
+            continue
+
+    print(parse_binary_image(filepath, pixel_size=pixel_size))
 
 def parse_binary_image(filepath, pixel_size=1):
     binary_values = []
