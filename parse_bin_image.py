@@ -12,7 +12,7 @@ def main():
 
     pixel_size = "1"
 
-    for arg in argv:
+    for arg in sys.argv:
         if("--pixel_size" in arg):
             pixel_size = arg.split("=")[-1]
             continue
