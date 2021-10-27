@@ -32,7 +32,7 @@ def parse_binary_image(filepath, pixel_size=1):
 
                 # 0 for whiter pixels, 1 for blacker pixels (relative to 50% grey)
                 bin_value = int(pixel_value > 128)
-                binary_values.append[bin_value]
+                binary_values.append(bin_value)
 
     return binary_values
 
