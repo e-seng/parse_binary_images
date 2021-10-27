@@ -26,7 +26,10 @@ def parse_binary_image(filepath, pixel_size=1):
         y = j * pixel_size
         for i in range(max_x):
                 x = i * pixel_size # jump by the pixel_size to the next pixel
-                print(pixel_array[x, y])
+                pixel_value = pixel_array[x, y][0] # only read the R value since it should be back/white
+
+                # 0 for whiter pixels, 1 for blacker pixels (relative to 50% grey)
+                bin_value = int(pixel_value > 128)
 
 if __name__ == "__main__":
     main()
