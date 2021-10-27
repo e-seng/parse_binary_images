@@ -2,6 +2,7 @@
 
 import sys
 import parse_bin_image
+from PIL import Image
 
 def main():
     # usage ./xor_images.py /path/to/image1 /path/to/image2 [OPTIONS]
@@ -27,6 +28,12 @@ def main():
         xor_out.append(image1[i] ^ image2[i])
 
     print(xor_out)
+
+    # get size of the image to enter newlines in appropreate locations
+    image = Image.open(fp1);
+    width, height = image.size
+
+    row_length = width // ps
 
     # AGAIN WHY PYTHON MUST YOU BETRAY ME WITH UNCONVENTIONAL FOR SYNTAXES
     for i in range(len(xor_out)):
