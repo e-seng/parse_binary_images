@@ -18,7 +18,10 @@ def main():
             continue
 
     ps = int(pixel_size)
-    print(parse_binary_image(filepath, pixel_size=ps))
+    # print(parse_binary_image(filepath, pixel_size=ps))
+    binary_values = parse_binary_image(filepath, pixel_size=ps)
+    for value in binary_values:
+        sys.stdout.buffer.write(bytes(f"{value}", "utf-8"))
 
 def parse_binary_image(filepath, pixel_size=1):
     binary_values = []
