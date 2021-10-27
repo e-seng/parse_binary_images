@@ -13,6 +13,8 @@ def main():
     parse_binary_image(filepath)
 
 def parse_binary_image(filepath, pixel_size=1):
+    binary_values = []
+
     image = Image.open(filepath)
     pixel_array = image.load()
 
@@ -30,6 +32,9 @@ def parse_binary_image(filepath, pixel_size=1):
 
                 # 0 for whiter pixels, 1 for blacker pixels (relative to 50% grey)
                 bin_value = int(pixel_value > 128)
+                binary_values.append[bin_value]
+
+    return binary_values
 
 if __name__ == "__main__":
     main()
