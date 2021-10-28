@@ -110,7 +110,7 @@ in general, when i'm stumped on a problem, i like to take a step back and look a
 if there was anything i could've missed. i placed both image windows in the same spot on my screen and started to `alt+tab` to
 switch between both images.
 
-![alt-tabbing between images show some pixels seem to shift, others did not](https://imgflip.com/gif/5s2miq "a little fuzzy, sorry")
+![alt-tabbing between images show some pixels seem to shift, others did not](https://i.imgflip.com/5s2miq.gif "a little fuzzy, sorry")
 
 welp, that's pretty interesting! some pixels seem to move between both images while others did not!
 
