@@ -192,4 +192,20 @@ doing running the code above (redirected into a file) produced:
 00000000000000000000000000000000000000000111111001111110000000000000000000000000011111111111111111111111
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111110000000
 ```
-ah, so it was an *image* image.
+ah, so it was an *image* image. it's also a lot larger than i originally expected.
+
+so, to convert this binary back into an image, i used [this website](https://www.dcode.fr/binary-image) to help me.
+
+dumping the binary into its built-in converter (and finding the row-size of bits to be 512 pixels) the website produced
+a familar comic style for me
+
+![a popular programming comic series featuring stickmen.](./solution/dcode-image.png "related")
+
+i tried to use a google reverse image search, but that failed unfortunately. however, knowing the popularity of XKCD comics,
+searching for "xkcd october 30th" led me to a page featuring this comic panel
+
+![the same image as before, just in higher resolution i guess](https://imgs.xkcd.com/comics/october_30th.png "acutally related")
+
+perfect! that means the solution to this challenge is the link to this comic.
+
+[https://xkcd.com/656/](https://xkcd.com/656/)
