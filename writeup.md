@@ -94,7 +94,7 @@ copying the binary that was generated into the converter led to... this.
 eZWî¥m¦hI¨x³Âuî"zXcndÚ±
 Wæ¥>S¡{2ÐîÅm¦%©4æûÊhCFe ¥O]Û¦¤!V¢[u«¤=Ýk²lØô*ú¤iÁ\Í:õ¦å¦mË5W|¶ZÕo¦°÷b$t)Mê÷jòwIå%5*f¶éi½±
 ©Zaù!bçeÚª²ÚÒÛSjñ­¹ê¦¶?*©OfªO©Ö±]*ªäÝ
-¹%íæÅåyYò&èVAMújm
+¹%íæÅåyYò&èVAMújm}
 ¥Þ^Ý$YrV)-\hfR*FÀÕ©°UZ°ªõbZYv¤¦
 ...
 ```
@@ -128,4 +128,37 @@ a | b | a ^ b
 ```
 
 ### making a new binary image
+when i first made `./parse_bin_image.py`, i made the program spit values out to `stdout` because i knew it would be easier to
+handle + add to that if needed. i messed around with python3's standard input, but found difficulty in piping the output of both
+0.png and 1.png. as such, i was glad that i made `parse_bin_image.py` into something that could be easily imported into another
+python3 script.
+
+importing the function i was using to get the array of binary data allowed me to inheriently get it in this second program i needed.
+```python3
+import parse_bin_image
+
+image1 = parse_bin_image.parse_binary_image("./0.png", pixel_size=2) # arguments have been made into variables in code
+image2 = parse_bin_image.parse_binary_image("./1.png", pixel_size=2)
+```
+
+with both arrays of binary data, i could now simply go through both array and get the XOR of each binary value.
+```python3
+xor_out = []
+
+for i in range(number_of_bits):
+  xor_out.append(image1[i] ^ image2[i])
+```
+printing *this* out in a single line was not going to be very useful, since i knew it already likely corresponded to an image. 
+it would also make sense if the output image had the same dimensions as the input images. as such, when printing, if the index
+of the bit i was printing was divisable by the number of bits in a row of the original image, that was when i needed to insert 
+a newline.
+```python3
+for i in range(len(xor_out)):
+  insert_char = f"{xor_out[i]}"
+
+  if(i % row_length == 0):
+    insert_char += "\n"
+  sys.stdout.buffer.write(bytes(insert_char, "utf-8"))
+```
+
 ### getting the solution
